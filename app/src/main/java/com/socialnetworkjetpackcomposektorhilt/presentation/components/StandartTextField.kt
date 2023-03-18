@@ -44,6 +44,7 @@ fun StandardTextField(
     onPasswordToggleClick: (Boolean) -> Unit = {},
     onValueChange: (String) -> Unit
 ) {
+
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -84,7 +85,7 @@ fun StandardTextField(
                 }
                 icon
             } else null,
-            trailingIcon = if(isPasswordToggleDisplayed) {
+            trailingIcon = if (isPasswordToggleDisplayed) {
                 val icon: @Composable () -> Unit = {
                     IconButton(
                         onClick = {

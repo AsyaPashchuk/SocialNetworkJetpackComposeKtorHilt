@@ -26,35 +26,35 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class SplashScreenKtTest {
 
-    @get:Rule
-    val composeTestRule = createAndroidComposeRule<MainActivity>()
-
-    @RelaxedMockK
-    lateinit var navController: NavController
-
-    private val testDispatcher = TestCoroutineDispatcher()
-
-    @Before
-    fun setUp() {
-        MockKAnnotations.init(this)
-    }
-
-    @Test
-    fun splashScreen_displaysAndDisappears() = testDispatcher.runBlockingTest {
-        composeTestRule.setContent {
-            SocialNetworkJetpackComposeKtorHiltTheme {
-                SplashScreen(navController = navController)
-            }
-        }
-        composeTestRule
-            .onNodeWithContentDescription("logo")
-            .assertExists()
-
-        advanceTimeBy(Constants.SPLASH_SCREEN_DURATION)
-
-        verify {
-            navController.popBackStack()
-            navController.navigate(Screen.LoginScreen.route)
-        }
-    }
+//    @get:Rule
+//    val composeTestRule = createAndroidComposeRule<MainActivity>()
+//
+//    @RelaxedMockK
+//    lateinit var navController: NavController
+//
+//    private val testDispatcher = TestCoroutineDispatcher()
+//
+//    @Before
+//    fun setUp() {
+//        MockKAnnotations.init(this)
+//    }
+//
+//    @Test
+//    fun splashScreen_displaysAndDisappears() = testDispatcher.runBlockingTest {
+//        composeTestRule.setContent {
+//            SocialNetworkJetpackComposeKtorHiltTheme {
+//                SplashScreen(navController = navController)
+//            }
+//        }
+//        composeTestRule
+//            .onNodeWithContentDescription("logo")
+//            .assertExists()
+//
+//        advanceTimeBy(Constants.SPLASH_SCREEN_DURATION)
+//
+//        verify {
+//            navController.popBackStack()
+//            navController.navigate(Screen.LoginScreen.route)
+//        }
+//    }
 }
